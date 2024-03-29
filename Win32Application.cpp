@@ -114,6 +114,9 @@ LRESULT CALLBACK Win32Application::WindowProc(HWND hWnd, UINT message, WPARAM wP
 		return 0;
 	}
 
+	if (static_cast<uint8_t>(wParam) == VK_ESCAPE)
+		PostQuitMessage(0);
+
 	// Handle any messages the switch statement didn't.
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
